@@ -6,6 +6,8 @@ fn main() {
     println!("cargo:rustc-link-lib=static=ucd");
 
     let build_dir = cmake::Config::new("../../../deps/espeak-ng")
+        .configure_arg("-DBUILD_ESPEAK_NG_EXE:BOOL=OFF")
+        .configure_arg("-DBUILD_ESPEAK_NG_TESTS:BOOL=OFF")
         .configure_arg("-DUSE_ASYNC:BOOL=OFF")
         .configure_arg("-DUSE_MBROLA:BOOL=OFF")
         .configure_arg("-DUSE_LIBSONIC:BOOL=OFF")
